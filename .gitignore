@@ -1,0 +1,2 @@
+certs/**
+!certs/generate_pki.sh
