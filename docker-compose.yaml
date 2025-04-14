@@ -22,5 +22,18 @@ services:
     entrypoint: /usr/local/bin/migrations.sh
     restart: no
 
+  kreda-server:
+    container_name: kreda-server
+    image: kreda-server
+    build:
+      context: ./server
+      target: base
+      dockerfile: ./KredaServer.Presentation/Dockerfile
+    volumes:
+      - ./server:/workspace
+      - ./certs/kreda-server:/certs:ro
+    entrypoint: ./KredaServer.Presentation/dev-entrypoint.sh
+    restart: on-failure:3
+
 volumes:
   postgres:
