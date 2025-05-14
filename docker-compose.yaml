@@ -32,7 +32,23 @@ services:
     volumes:
       - ./server:/workspace
       - ./certs/kreda-server:/certs:ro
+    ports:
+      - "5000:5000"
     entrypoint: ./KredaServer.Presentation/dev-entrypoint.sh
+    restart: on-failure:3
+
+  kreda-client:
+    container_name: kreda-client
+    image: kreda-client
+    build:
+      context: ./client
+      target: base
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./client:/workspace
+    entrypoint: ./dev-entrypoint.sh
     restart: on-failure:3
 
 volumes:

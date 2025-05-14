@@ -2,3 +2,7 @@
 	path = server
 	url = git@github.com:KredaWhiteboard/KredaServer.git
 	branch = master
+[submodule "client"]
+	path = client
+	url = git@github.com:KredaWhiteboard/KredaClient.git
+	branch = master
