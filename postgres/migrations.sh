@@ -10,7 +10,7 @@ done
 echo "Database server is available"
 
 echo "Running migrations for kreda server"
-while ! migrate -source file:///server/Kreda.Migrations -database postgresql://kreda_server_admin:qwerty1!@postgres:5432/kreda_server up; do
+while ! migrate -source file:///server/KredaServer.Migrations -database postgresql://postgres:postgres@postgres:5432/kreda_server?sslmode=disable up; do
     echo "Kreda server database is not available yet. Waiting..."
     sleep 2
 done
