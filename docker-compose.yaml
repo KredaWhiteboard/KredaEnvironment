@@ -31,7 +31,7 @@ services:
       target: base
       dockerfile: ./KredaServer.Presentation/Dockerfile
     environment:
-      DATABASE_CONNECTION_STRING: Host=postgres;Database=kreda_server;Username=kreda_server_user;Password=qwerty1!
+      DATABASE_CONNECTION_STRING: "Host=postgres;Database=kreda_server;Username=postgres;Password=postgres"
     volumes:
       - ./server:/workspace
       - ./certs/kreda-server:/certs:ro
